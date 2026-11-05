@@ -114,9 +114,38 @@ while read -r SRR; do
 done < srr_accessions.txt
 ```
 -script may give you an error if anaconda3 was loaded before script was run, exit the HPC and run it again.
+
 -Run script using
 ```
 bash download_sra.sh &
+```
+
+To test if all the files downloaded correctly, ls into the file
+```
+ls
+```
+You should see 6 SRR numbers, all lit up blue 
+
+Make a new file for the fastq files 
+```
+mkdir -p fastq_files
+```
+
+***COME BACK HERE. DATA FOR CONVERTING SRA INTO FASTQ AND GZ***
+
+Go into your fastq_files folder 
+```
+cd fastq_files
+```
+
+ls to make sure all files are there. You should see 6 Red files 
+```
+ls
+``
+
+Once the Fastq.gz filed have been created, we need to unzip them.
+```
+gunzip *.fastq.gz
 ```
 
 
