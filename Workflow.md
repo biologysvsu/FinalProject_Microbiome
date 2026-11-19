@@ -1,11 +1,10 @@
-# Final-Project-Microbiome#
-# Task: Tutorial for Gene Expression Analysis Using Qiime2 Gene Expression Quantification, and Differential Expression Analysis
+# Final-Project-Microbiome
+# Task: Tutorial for Gene Expression Analysis Using Qiime2 and MultiqC, Gene Expression Quantification, and Differential Expression Analysis
 
 ## **Objective**
 Students will:
 1. Download RNA-seq data for **Not-Depressed** and **Depressed** human cell lines from the provided SRA project.
-2. Quantify gene expression using **FeatureCounts**.
-3. Perform differential expression analysis between mock-infected and COVID-19-infected cells using **DESeq2** (or equivalent).
+2. Use Qiime@ and MultiQC to analyze and visualize data. 
 4. Visualize results such as heatmaps and volcano plots to highlight key differentially expressed genes.
 
 ---
@@ -223,7 +222,7 @@ Once the Fastq.gz filed have been created, we need to unzip them.
 gunzip *.fastq.gz
 ```
 
-### Step 3. Quality Control on the Data###
+### Step 3. Quality Control on the Data
 
 1. Create an output directory for the fastqc output.
 ```
@@ -241,7 +240,7 @@ multiqc fastqc_microbiome_out --filename multiqc_raw_data.html
 ```
 
 
-### Step 4. Run Quimme to study the Microbiome###
+### Step 4. Run Quimme to study the Microbiome
 
 1. Create a Symlink for the metadata file from the share folder
 ```
@@ -254,7 +253,7 @@ head FinalProject_metadata_reduced.tsv
 ```
 
 
-### Step 5. Formatting steps for quimme###
+### Step 5. Formatting steps for quimme
 
 1. Create the following directory
 ```
@@ -305,7 +304,7 @@ Now we will do a few steps to actually see our data.
 - Open the file in https://view.qiime2.org/
 
 
-### Step 6. Denoising the reads###
+### Step 6. Denoising the reads 
 1. Join pair-end reds
 ```         
 qiime vsearch merge-pairs \
@@ -356,14 +355,7 @@ qiime feature-table summarize \
 ```
 ln -s /ocean/projects/bio260081p/shared/week-7-data/taxa .
 ```
-2. Run taxonomic classification (DO NOT RUN THIS)
-```         
-qiime feature-classifier classify-sklearn \
-  --i-classifier /ocean/projects/bio260081p/shared/week-7-data/SILVA_144_SSURef_NR99_weighted_classifier_full-length_plant-rhizosphere.qza \
-  --i-reads deblur_output/representative_sequences.qza \
-  --o-classification taxa/classification.qza \
-  --p-n-jobs 4
-```
+
 ### Filtering resultant table
 1. Filter out rare ASVs
 ```         
