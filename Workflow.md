@@ -141,14 +141,14 @@ cd fastq_files
 ls to make sure all files are there. You should see 6 Red files 
 ```
 ls
-``
+```
 
 Once the Fastq.gz filed have been created, we need to unzip them.
 ```
 gunzip *.fastq.gz
 ```
 
-****### Step 3. Run analysis on Microbiome Data****
+***### Step 3. Run analysis on Microbiome Data***
 
 1. We will first run fastqc by making a directory for the output to go: 
 
