@@ -337,7 +337,7 @@ qiime deblur denoise-16S \
 ```
 Note: This command may take about 10 minutes to run. Keep your computer awake and prevent it from going to sleep, as this may disconnect you from the HPC session and interrupt the process.
 
-4. Summarize dublur output
+5. Summarize dublur output
 ```         
 qiime feature-table summarize \
   --i-table deblur_output/table.qza \
@@ -408,7 +408,7 @@ qiime feature-table summarize \
 
 - Git add, commit and push `deblur_table_final_summary.qzv` Download and open in https://view.qiime2.org/
 
-# VISUALIZATION
+# VISUALIZATION (Optional Steps)
 1. Create a phylogenetic tree
 ```         
 qiime phylogeny align-to-tree-mafft-fasttree \
