@@ -1,10 +1,10 @@
 # Final-Project-Microbiome
-# Task: Tutorial for Gene Expression Analysis Using Qiime2 and MultiqC, Gene Expression Quantification, and Differential Expression Analysis
+# Task: Tutorial for Gene Expression Analysis Using Qiime2 and MultiQC, Gene Expression Quantification, and Differential Expression Analysis
 
 ## **Objective**
 Students will:
 1. Download RNA-seq data for **Not-Depressed** and **Depressed** human cell lines from the provided SRA project.
-2. Use Qiime@ and MultiQC to analyze and visualize data. 
+2. Use Qiime2 and MultiQC to analyze and visualize data. 
 4. Visualize results such as heatmaps and volcano plots to highlight key differentially expressed genes.
 
 ---
@@ -18,7 +18,7 @@ There are more data available in this project, students should be free to explor
 
 ## **Tasks and Deliverables**
 ### **Data Preparation**
-1. Download all replicates for not Depressed and Depressed samples:
+1. Download all replicates for non-depressed and Depressed samples:
         Mock-infected: SRR11412215 to SRR11412218.
         COVID-19-infected: SRR11412227 to SRR11412230.
 ## Install MultiQC
