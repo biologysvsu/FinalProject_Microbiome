@@ -440,7 +440,7 @@ qiime feature-table summarize \
 
 - Git add, commit and push `deblur_table_final_summary.qzv` Download and open in https://view.qiime2.org/
 
-# VISUALIZATION (Optional Steps)
+# VISUALIZATION
 1. Create a phylogenetic tree
 ```         
 qiime phylogeny align-to-tree-mafft-fasttree \
