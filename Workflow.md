@@ -125,7 +125,7 @@ cd fastq_files
 ls to make sure all files are there. You should see 6 Red files 
 ```
 ls
-``
+```
 
 Once the Fastq.gz filed have been created, we need to unzip them.
 ```
