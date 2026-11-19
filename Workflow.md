@@ -1,5 +1,5 @@
 # Final-Project-Microbiome#
-# Task: Tutorial for Gene Expression Analysis Using STAR, Gene Expression Quantification, and Differential Expression Analysis
+# Task: Tutorial for Gene Expression Analysis Using Qiime2 Gene Expression Quantification, and Differential Expression Analysis
 
 ## **Objective**
 Students will:
@@ -18,10 +18,101 @@ The dataset comes from the **NCBI BioProject PRJNA615032**, which includes RNA-s
 There are more data available in this project, students should be free to explore these data and modify SRA accessions accordingly.
 
 ## **Tasks and Deliverables**
-### **Part 1: Data Preparation**
+### **Data Preparation**
 1. Download all replicates for not Depressed and Depressed samples:
         Mock-infected: SRR11412215 to SRR11412218.
         COVID-19-infected: SRR11412227 to SRR11412230.
+## Install MultiQC
+MultiQC is a bioinformatics tool that combines quality-control results from multiple sequencing samples into a single report. We will install MultiQC and FastQC using Conda on Bridges-2.
+1. Load Anaconda: Anaconda allows us to create separate environments containing the software needed for our analyses.
+```
+module load anaconda3
+```
+2. Create a Conda environment: The following command creates an environment named multiqc and installs both MultiQC and FastQC.
+```
+conda create -n multiqc -c conda-forge -c bioconda multiqc fastqc -y
+```
+3. Activate the environment: Once installation is compleete, activate the environment:
+```
+conda activate multiqc
+```
+You should now see (multiqc) at the beginning of your terminal prompt.
+
+4. Verify the installation: Check that both programs are available:
+```
+multiqc --version
+```
+```
+fastqc --version
+```
+If both commands display version information, the installation was successful.
+5. Deactivate the MultiQC Conda environment before installing the next software.
+```
+conda deactivate
+```
+## Install QIIME2
+
+1. Load anaconda. If you are using the same terminal window from the MultiQC installation, skip this step. If you closed your terminal and logged back into Bridges-2, run:
+```
+module load anaconda3
+```
+2. Check that you do not have any environments installed
+  ```
+  conda env list
+  ```
+  - If you do not have any Conda environments created, you will likely see:
+    - `base                  *  /opt/packages/anaconda3-2024.10-1'
+  → Continue to Step 3.
+  - If you do have an existing environment, you will see:
+    - `qiime2-amplicon-2024.2     /jet/home/your-username/.conda/envs/qiime2-amplicon-2024.2`
+    - `base                  *  /opt/packages/anaconda3-2024.10-1`
+   → Skip to Step 5. 
+3. Create a QIIME 2 environment: The installation may take several minutes. Wait until your terminal prompt reappears.
+
+```bash
+conda env create -n qiime2 --file https://raw.githubusercontent.com/qiime2/distributions/refs/heads/dev/2026.7/qiime2/released/rachis-qiime2-linux-64-conda.yml
+```
+4. Activate QIIME 2.
+
+```bash
+conda activate qiime2
+```
+
+Your terminal prompt should now begin with `(qiime2)`.
+
+5. Check that QIIME 2 was installed successfully.
+
+```bash
+qiime info
+```
+
+    **(OPTIONAL) Troubleshooting: If QIIME2 Does Not Work**
+    If QIIME2 does not work, there may be a Conda environment conflict.
+    
+    a. Check for Incomplete Installations
+    ```
+    ls -l /jet/home/your-username/.conda/envs/
+    ```
+    If you see an incomplete QIIME2 installation, proceed to the next step.
+    b. Manually delete those installations
+    ```
+    rm -rf /jet/home/yourusername/.conda/envs/qiime2-amplicon-2024.2
+    ```
+    c. Clean Up Conda Cache
+    ```
+    conda clean --all -y
+    ```
+    d. Check how much disk space is being used by Conda's downloaded packages. Ideally, this should be less than 10 GB.
+    ```
+    du -sh ~/.conda/pkgs
+    ```
+    e. Reinstall QIIME2
+    Repeat Steps 3-5 to reinstall QIIME2.
+
+6. Deactivate the Conda environment for now. We will activate it again once our input files are ready.
+```
+conda deactivate
+```
 ### Step 1. Create a directory for your transcriptome data
 0. Request resources:
 ```
