@@ -31,7 +31,7 @@ module load anaconda3
 ```
 conda create -n multiqc -c conda-forge -c bioconda multiqc fastqc -y
 ```
-3. Activate the environment: Once installation is compleete, activate the environment:
+3. Activate the environment: Once installation is complete, activate the environment:
 ```
 conda activate multiqc
 ```
@@ -204,8 +204,6 @@ Make a new file for the fastq files
 ```
 mkdir -p fastq_files
 ```
-
-***COME BACK HERE. DATA FOR CONVERTING SRA INTO FASTQ AND GZ***
 
 Go into your fastq_files folder 
 ```
